@@ -48,6 +48,12 @@
             </tbody>
         </table>
 
+        <?php
+            // Download
+			echo '<a href="' . URLROOT . '/outputs/getJSON/?id=' . $student->id . '"> GET JSON </a>';
+			echo '<br/><br/>';
+            echo '<a href="' . URLROOT . '/outputs/getXML/?id=' . $student->id . '"> GET XML </a>';
+        ?>
     </body>
 
 </html>

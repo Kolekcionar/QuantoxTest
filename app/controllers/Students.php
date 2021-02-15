@@ -8,7 +8,7 @@
         public function index($studentId = null) {
 
             // If there is student id show pass/fail report
-            if (isset($studentId)) {
+            if (isset($studentId) && !is_int($studentId)) {
                 $student = $this->modelStudents->getStudent($studentId);
 
                 // Check if student data is empty object
@@ -32,6 +32,6 @@
                 $this->view('students/index', $data);
             }
 
-
         }
+
     }

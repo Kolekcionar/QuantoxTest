@@ -1,4 +1,5 @@
 <?php
+
     class Student {
         private $db;
 
@@ -73,10 +74,6 @@
 
             // Add student status to dataset
             $result->status = $status;
-
-            // Prepare output
-            $json = json_encode($result);
-            $xml = null;
 
             // Return dataset
             return $result;
