@@ -17,6 +17,9 @@ Quick 5 hrs PHP test for applying to position in Quantox
   ```
     RewriteBase /QuantoxTest/public
   ```
+  
+- Get composer packages
+
 
 ### Prerequisites
 
