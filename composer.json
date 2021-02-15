@@ -1,0 +1,15 @@
+{
+    "name": "ivan_stojanovic/quantox_test",
+    "description": "Quantox 5hrs PHP test",
+    "type": "project",
+    "require": {
+        "ivory/serializer": "^1.0"
+    },
+    "license": "CC",
+    "authors": [
+        {
+            "name": "Ivan Stojanovic",
+            "email": "ivansto79@gmail.com"
+        }
+    ]
+}

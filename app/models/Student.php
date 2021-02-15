@@ -1,4 +1,5 @@
 <?php
+
     class Student {
         private $db;
 
@@ -49,6 +50,7 @@
 
             // Check grades average if school board is CSM
             $status = "FAILED";
+
             if ( $result->school_board == "CSM" ) {
                 if ($result->grades_average >= 7)
                     $status = "PASSED";
@@ -63,11 +65,34 @@
                 return new stdClass();
             }
 
+            // Remove unnecessary object properties
+            unset($result->grades_count);
+            unset($result->biggest_grade);
+
+            // Add student grades to dataset
+            $result->grades = $this->getGrades($studentId);
+
             // Add student status to dataset
             $result->status = $status;
 
             // Return dataset
             return $result;
+        }
+
+        private function getGrades($studentId) {
+
+            // GET All Students QUERY
+            $this->db->query("SELECT subjects.subject,
+                                         grades.grade
+                                  FROM subjects
+                                  LEFT JOIN grades ON grades.id_subject = subjects.id
+                                  WHERE grades.id_student =" . $studentId .
+                                 " ORDER BY subjects.id ASC");
+            $result = $this->db->resultSet();
+
+            // Return dataset
+            return $result;
+
         }
 
     }
