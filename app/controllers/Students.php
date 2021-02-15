@@ -22,6 +22,11 @@
             } else {
                 // Get data - students list
                 $students = $this->modelStudents->getStudents();
+
+                // Check if student data is empty object
+                if (count(get_object_vars((object)$students)) === 0)
+                    die('There is no data.');
+
                 $data = [ 'students' => $students ];
                 // Show in the View
                 $this->view('students/index', $data);
